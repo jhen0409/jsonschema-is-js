@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/jhen0409/jsonschema-is-js-plugin.svg)](https://travis-ci.org/jhen0409/jsonschema-is-js-plugin)
 [![NPM version](http://img.shields.io/npm/v/jsonschema-is-js.svg?style=flat)](https://www.npmjs.com/package/jsonschema-is-js)
 
-[jsonschema](https://github.com/tdegrunt/jsonschema) validator property include is.js functions.
+[jsonschema](https://github.com/tdegrunt/jsonschema) validator property include [is.js](https://github.com/arasatasaygin/is.js) functions.
 
 ## Install
 
