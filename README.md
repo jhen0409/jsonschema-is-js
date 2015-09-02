@@ -1,5 +1,7 @@
 # JavaScript jsonschema is-js plugin
 
+[![NPM version](http://img.shields.io/npm/v/jsonschema-is-js.svg?style=flat)]((https://www.npmjs.com/package/jsonschema-is-js)
+
 [jsonschema](https://github.com/tdegrunt/jsonschema) validator property include is.js functions.
 
 ## Install
