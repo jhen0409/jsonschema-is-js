@@ -40,6 +40,13 @@ console.log(result1.errors);  // error
 console.log(result2.errors);  // not error
 ```
 
+or use is.js of override regex:
+```js
+var is = require('is_js')
+is.setRegexp(/quack/, 'url');
+v.attributes.is = isPlugin(is);
+```
+
 ## LICENSE
 
 [MIT](LICENSE)

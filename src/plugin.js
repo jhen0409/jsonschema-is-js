@@ -1,7 +1,7 @@
-import is from 'is_js';
+import is_js from 'is_js';
 import jsonschema from 'jsonschema';
 
-export default function createPlugin() {
+export default function createPlugin(is = is_js) {
   return function validateIsJs(instance, schema, options, ctx) {
     let property = '';
     Object.keys(this.attributes).every((key) => {
