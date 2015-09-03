@@ -12,9 +12,17 @@ export default function createPlugin() {
       return true;
     });
 
-    const method = schema[property];
+    let method = schema[property];
     if (typeof method != 'string') {
       throw new jsonschema.SchemaError(`${property} expects a string`, schema);
+    }
+
+    // value handle, ex: 'include:text' -> method: include, value: text
+    const position = method.indexOf(':');
+    let value;
+    if (position >= 0) {
+      value = method.substring(position + 1);
+      method = method.substring(0, position);
     }
 
     let call = is;
@@ -25,7 +33,16 @@ export default function createPlugin() {
         return `function not found: isjs.${method}`;
       }
     }
-    if (!call(instance)) {
+
+    let result;
+    try {
+      if (value) {
+        result = call(instance, value);
+      } else {
+        result = call(instance);
+      }
+    } catch(e) {}
+    if (instance !== undefined && !result) {
       return `not match isjs.${method}`;
     }
   }

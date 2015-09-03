@@ -23,7 +23,8 @@ v.attributes.is = isPlugin();
 var schema = {
   type: 'object',
   properties: {
-    emails: { type: 'array', is: 'all.email' }  // <- use attribute
+    emails: { type: 'array', is: 'all.email' },  // <- use attribute
+    text: { type: 'string', is: 'include:some' } // <- method:value, result: is.include(text, 'some')
   }
 };
 
@@ -31,7 +32,8 @@ var result1 = v.validate({
   emails: [ 'a@test.cc', 'b@test.cc', 123, 'test' ]
 }, schema);
 var result2 = v.validate({
-  emails: [ 'a@test.cc', 'b@test.cc', 'test@ggg.gg' ]
+  emails: [ 'a@test.cc', 'b@test.cc', 'test@ggg.gg' ],
+  text: 'some text...'
 }, schema);
 
 console.log(result1.errors);  // error
