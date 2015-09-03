@@ -4,15 +4,10 @@
   "description": "jsonschema validator property include is.js functions.",
   "main": "index.js",
   "scripts": {
-    "build": "$npm_package_config_babel src --out-dir lib",
-    "test:eslint": "$npm_package_config_eslint .",
-    "test:mocha": "$npm_package_config_mocha --compilers js:babel/register",
+    "build": "babel src --out-dir lib",
+    "test:eslint": "eslint .",
+    "test:mocha": "mocha --compilers js:babel/register",
     "test": "npm run test:eslint && npm run test:mocha"
-  },
-  "config": {
-    "babel": "./node_modules/babel/bin/babel.js",
-    "eslint": "./node_modules/eslint/bin/eslint.js",
-    "mocha": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
