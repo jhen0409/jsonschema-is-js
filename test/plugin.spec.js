@@ -43,4 +43,28 @@ describe('jsonschema is.js tests', function() {
     expect(result.errors).to.have.length(1);
     done();
   });
+
+  it('should pass two parameter function', function(done) {
+    const schema = {
+      type: 'object',
+      properties: {
+        text: { type: 'string', is: 'include:some text' }
+      }
+    };
+    let result = v.validate({ text: 'some text...' }, schema);
+    expect(result.errors).to.have.length(0);
+    done();
+  });
+
+  it('should not pass two parameter function', function(done) {
+    const schema = {
+      type: 'object',
+      properties: {
+        text: { type: 'string', is: 'include:    some text' }
+      }
+    };
+    let result = v.validate({ text: 'some text...' }, schema);
+    expect(result.errors).to.have.length(1);
+    done();
+  });
 });
