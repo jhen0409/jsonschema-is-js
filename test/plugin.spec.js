@@ -7,7 +7,7 @@ v.attributes.is = isPlugin();
 
 describe('jsonschema is.js tests', function() {
 
-  it('should have schema function error', function(done) {
+  it('should have schema function error', () => {
     const schema = {
       type: 'object',
       properties: {
@@ -17,10 +17,9 @@ describe('jsonschema is.js tests', function() {
     let result = v.validate({ emails: [ 'a@test.cc', 'b@test.cc' ] }, schema);
     expect(result.errors).to.have.length(1);
     expect(result.errors[0].message).to.equal('function not found: isjs.all.emali');
-    done();
   });
 
-  it('should pass', function(done) {
+  it('should pass', () => {
     const schema = {
       type: 'object',
       properties: {
@@ -29,10 +28,9 @@ describe('jsonschema is.js tests', function() {
     };
     let result = v.validate({ emails: [ 'a@test.cc', 'b@test.cc' ] }, schema);
     expect(result.errors).to.have.length(0);
-    done();
   });
 
-  it('should have 1 error', function(done) {
+  it('should have 1 error', () => {
     const schema = {
       type: 'object',
       properties: {
@@ -41,10 +39,9 @@ describe('jsonschema is.js tests', function() {
     };
     let result = v.validate({ emails: [ 'a@test.cc', 'b@test.cc', 123, 'test' ] }, schema);
     expect(result.errors).to.have.length(1);
-    done();
   });
 
-  it('should pass two parameter function', function(done) {
+  it('should pass two parameter function', () => {
     const schema = {
       type: 'object',
       properties: {
@@ -53,10 +50,9 @@ describe('jsonschema is.js tests', function() {
     };
     let result = v.validate({ text: 'some text...' }, schema);
     expect(result.errors).to.have.length(0);
-    done();
   });
 
-  it('should not pass two parameter function', function(done) {
+  it('should not pass two parameter function', () => {
     const schema = {
       type: 'object',
       properties: {
@@ -65,6 +61,5 @@ describe('jsonschema is.js tests', function() {
     };
     let result = v.validate({ text: 'some text...' }, schema);
     expect(result.errors).to.have.length(1);
-    done();
   });
 });
