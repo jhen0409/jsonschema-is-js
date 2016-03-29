@@ -1,6 +1,6 @@
 {
   "name": "jsonschema-is-js",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "The jsonschema validator property included is.js functions",
   "main": "index.js",
   "files": [
