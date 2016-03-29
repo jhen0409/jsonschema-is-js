@@ -1,9 +1,6 @@
-# Javascript jsonschema is-js plugin
+# jsonschema-is-js [![Build Status](https://travis-ci.org/jhen0409/jsonschema-is-js-plugin.svg)](https://travis-ci.org/jhen0409/jsonschema-is-js-plugin) [![NPM version](http://img.shields.io/npm/v/jsonschema-is-js.svg?style=flat)](https://www.npmjs.com/package/jsonschema-is-js)
 
-[![Build Status](https://travis-ci.org/jhen0409/jsonschema-is-js-plugin.svg)](https://travis-ci.org/jhen0409/jsonschema-is-js-plugin)
-[![NPM version](http://img.shields.io/npm/v/jsonschema-is-js.svg?style=flat)](https://www.npmjs.com/package/jsonschema-is-js)
-
-[jsonschema](https://github.com/tdegrunt/jsonschema) validator property include [is.js](https://github.com/arasatasaygin/is.js) functions.
+The [jsonschema](https://github.com/tdegrunt/jsonschema) validator property included [is.js](https://github.com/arasatasaygin/is.js) functions for JavaScript.
 
 ## Install
 
@@ -40,13 +37,13 @@ console.log(result1.errors);  // error
 console.log(result2.errors);  // not error
 ```
 
-or use is.js of override regex:
+Or use is.js of override regex:
 ```js
 var is = require('is_js')
 is.setRegexp(/quack/, 'url');
 v.attributes.is = isPlugin(is);
 ```
 
-## LICENSE
+## License
 
 [MIT](LICENSE)
