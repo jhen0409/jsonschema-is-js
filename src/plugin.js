@@ -1,11 +1,11 @@
-import is_js from 'is_js';
+import isJs from 'is_js';
 import jsonschema from 'jsonschema';
 
-export default function createPlugin(is = is_js) {
-  return function validateIsJs(instance, schema, options, ctx) {
+export default function createPlugin(is = isJs) {
+  return function validateIsJs(instance, schema) {
     let property = '';
     Object.keys(this.attributes).every((key) => {
-      if (this.attributes[key] == validateIsJs) {
+      if (this.attributes[key] === validateIsJs) {
         property = key;
         return false;
       }
@@ -13,7 +13,7 @@ export default function createPlugin(is = is_js) {
     });
 
     let method = schema[property];
-    if (typeof method != 'string') {
+    if (typeof method !== 'string') {
       throw new jsonschema.SchemaError(`${property} expects a string`, schema);
     }
 
@@ -26,8 +26,8 @@ export default function createPlugin(is = is_js) {
     }
 
     let call = is;
-    const parts = method.split('.')
-    for (let part of parts) {
+    const parts = method.split('.');
+    for (const part of parts) {
       call = call[part];
       if (!call) {
         return `function not found: isjs.${method}`;
@@ -41,9 +41,10 @@ export default function createPlugin(is = is_js) {
       } else {
         result = call(instance);
       }
-    } catch(e) {}
+    /* eslint no-empty:0 */
+    } catch (e) {}
     if (instance !== undefined && !result) {
       return `not match isjs.${method}`;
     }
-  }
-};
+  };
+}

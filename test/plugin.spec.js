@@ -1,20 +1,19 @@
 const expect = require('chai').expect;
-let Validator = require('jsonschema').Validator;
+const Validator = require('jsonschema').Validator;
 const isPlugin = require('..');
 const v = new Validator();
 
 v.attributes.is = isPlugin();
 
-describe('jsonschema is.js tests', function() {
-
+describe('jsonschema is.js tests', () => {
   it('should have schema function error', () => {
     const schema = {
       type: 'object',
       properties: {
-        emails: { type: 'array', is: 'all.emali' }  // <- typo
-      }
+        emails: { type: 'array', is: 'all.emali' },  // <- typo
+      },
     };
-    let result = v.validate({ emails: [ 'a@test.cc', 'b@test.cc' ] }, schema);
+    const result = v.validate({ emails: ['a@test.cc', 'b@test.cc'] }, schema);
     expect(result.errors).to.have.length(1);
     expect(result.errors[0].message).to.equal('function not found: isjs.all.emali');
   });
@@ -23,10 +22,10 @@ describe('jsonschema is.js tests', function() {
     const schema = {
       type: 'object',
       properties: {
-        emails: { type: 'array', is: 'all.email' }
-      }
+        emails: { type: 'array', is: 'all.email' },
+      },
     };
-    let result = v.validate({ emails: [ 'a@test.cc', 'b@test.cc' ] }, schema);
+    const result = v.validate({ emails: ['a@test.cc', 'b@test.cc'] }, schema);
     expect(result.errors).to.have.length(0);
   });
 
@@ -34,10 +33,10 @@ describe('jsonschema is.js tests', function() {
     const schema = {
       type: 'object',
       properties: {
-        emails: { type: 'array', is: 'all.email' }
-      }
+        emails: { type: 'array', is: 'all.email' },
+      },
     };
-    let result = v.validate({ emails: [ 'a@test.cc', 'b@test.cc', 123, 'test' ] }, schema);
+    const result = v.validate({ emails: ['a@test.cc', 'b@test.cc', 123, 'test'] }, schema);
     expect(result.errors).to.have.length(1);
   });
 
@@ -45,10 +44,10 @@ describe('jsonschema is.js tests', function() {
     const schema = {
       type: 'object',
       properties: {
-        text: { type: 'string', is: 'include:some text' }
-      }
+        text: { type: 'string', is: 'include:some text' },
+      },
     };
-    let result = v.validate({ text: 'some text...' }, schema);
+    const result = v.validate({ text: 'some text...' }, schema);
     expect(result.errors).to.have.length(0);
   });
 
@@ -56,10 +55,10 @@ describe('jsonschema is.js tests', function() {
     const schema = {
       type: 'object',
       properties: {
-        text: { type: 'string', is: 'include:    some text' }
-      }
+        text: { type: 'string', is: 'include:    some text' },
+      },
     };
-    let result = v.validate({ text: 'some text...' }, schema);
+    const result = v.validate({ text: 'some text...' }, schema);
     expect(result.errors).to.have.length(1);
   });
 });
