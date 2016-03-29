@@ -1,7 +1,7 @@
 {
   "name": "jsonschema-is-js",
   "version": "0.2.0",
-  "description": "jsonschema validator property include is.js functions.",
+  "description": "The jsonschema validator property included is.js functions",
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jhen0409/jsonschema-is-js-plugin.git"
+    "url": "git+https://github.com/jhen0409/jsonschema-is-js.git"
   },
   "keywords": [
     "jsonschema",
@@ -20,9 +20,9 @@
   "author": "Jhen <developer@jhen.me>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jhen0409/jsonschema-is-js-plugin/issues"
+    "url": "https://github.com/jhen0409/jsonschema-is-js/issues"
   },
-  "homepage": "https://github.com/jhen0409/jsonschema-is-js-plugin#readme",
+  "homepage": "https://github.com/jhen0409/jsonschema-is-js#readme",
   "dependencies": {
     "is_js": "^0.7.4"
   },
