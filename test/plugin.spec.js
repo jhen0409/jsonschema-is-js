@@ -1,6 +1,7 @@
-const expect = require('chai').expect;
-const Validator = require('jsonschema').Validator;
-const isPlugin = require('..');
+import { expect } from 'chai';
+import { Validator } from 'jsonschema';
+import isPlugin from '../src/plugin';
+
 const v = new Validator();
 
 v.attributes.is = isPlugin();
