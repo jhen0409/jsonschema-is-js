@@ -1,11 +1,11 @@
-# jsonschema-is-js [![Build Status](https://travis-ci.org/jhen0409/jsonschema-is-js-plugin.svg)](https://travis-ci.org/jhen0409/jsonschema-is-js-plugin) [![NPM version](http://img.shields.io/npm/v/jsonschema-is-js.svg?style=flat)](https://www.npmjs.com/package/jsonschema-is-js)
+# jsonschema-is-js [![Build Status](https://travis-ci.org/jhen0409/jsonschema-is-js.svg)](https://travis-ci.org/jhen0409/jsonschema-is-js) [![NPM version](http://img.shields.io/npm/v/jsonschema-is-js.svg?style=flat)](https://www.npmjs.com/package/jsonschema-is-js)
 
 The [jsonschema](https://github.com/tdegrunt/jsonschema) validator property included [is.js](https://github.com/arasatasaygin/is.js) functions for JavaScript.
 
 ## Install
 
 ```
-npm i --save jsonschema-is-js
+$ npm i --save jsonschema jsonschema-is-js
 ```
 
 ## Usage

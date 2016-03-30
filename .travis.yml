@@ -6,6 +6,5 @@ node_js:
 
 script:
   - npm run lint
-  - npm i jsonschema
   - npm test
   - npm run build
